@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "Shabnam";
+  src: url("./fonts/Shabnam-FD.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Shabnam";
+  src: url("./fonts/Shabnam-Bold-FD.woff2") format("woff2");
+  font-weight: bold;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
