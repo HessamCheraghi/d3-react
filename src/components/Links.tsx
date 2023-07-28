@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 const links = [
   { label: "simple line", path: "line/simple" },
   { label: "responsive line", path: "line/responsive" },
+  { label: "resizable line", path: "line/resizable" },
 ];
 
 export default function Links() {

@@ -3,6 +3,7 @@ import Layout from "@/components/Layout";
 import Links from "@/components/Links";
 import SimpleLineChart from "./line-charts/simple";
 import ResponsiveLineChart from "./line-charts/responsive";
+import ResizableLineChart from "./line-charts/resizable";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
           <Routes>
             <Route path="simple" element={<SimpleLineChart />} />
             <Route path="responsive" element={<ResponsiveLineChart />} />
+            <Route path="resizable" element={<ResizableLineChart />} />
           </Routes>
         }
       />
