@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 
-const links = [{ label: "simple line", path: "line/simple" }];
+const links = [
+  { label: "simple line", path: "line/simple" },
+  { label: "responsive line", path: "line/responsive" },
+];
 
 export default function Links() {
   return (

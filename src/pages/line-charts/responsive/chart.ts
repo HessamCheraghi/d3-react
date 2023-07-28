@@ -39,8 +39,6 @@ export function drawChart(
   // Create the SVG container.
   const svg = d3
     .select(svgRef.current)
-    .attr("width", width)
-    .attr("height", height)
     .attr("viewBox", [0, 0, width, height])
     .attr("style", "max-width: 100%; height: auto; height: intrinsic;");
 
@@ -87,6 +85,16 @@ export function drawChart(
     .attr("d", line(data));
 }
 
+// clean up function used by react
 export function deleteChart(svgRef: React.RefObject<SVGSVGElement>) {
-  if (svgRef.current) svgRef.current.textContent = "";
+  const svgElement = svgRef.current;
+  if (!svgElement) return;
+
+  // remove everything inside svg element
+  svgElement.textContent = "";
+
+  // remove all the attributes of the svg element
+  [...svgElement.attributes].forEach((attr) =>
+    svgElement.removeAttribute(attr.name),
+  );
 }

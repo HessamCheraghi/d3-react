@@ -1,7 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import SimpleLineChart from "./line-charts/simple";
 import Layout from "@/components/Layout";
 import Links from "@/components/Links";
+import SimpleLineChart from "./line-charts/simple";
+import ResponsiveLineChart from "./line-charts/responsive";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
         element={
           <Routes>
             <Route path="simple" element={<SimpleLineChart />} />
+            <Route path="responsive" element={<ResponsiveLineChart />} />
           </Routes>
         }
       />
