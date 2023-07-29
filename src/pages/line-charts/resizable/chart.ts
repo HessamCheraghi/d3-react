@@ -46,7 +46,7 @@ export function drawChart(
     .attr("width", width)
     .attr("height", height)
     .attr("viewBox", [0, 0, width, height])
-    .attr("style", "max-width: 100%; height: 100%;");
+    .attr("style", "width: 100%; height: 100%;");
 
   // Add the x-axis.
   svg

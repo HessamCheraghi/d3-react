@@ -34,7 +34,7 @@ export function drawChart(
   const svg = d3
     .select<SVGSVGElement, DatumType>(svgElement)
     .attr("viewBox", [0, 0, width, height])
-    .attr("style", "max-width: 100%; height: auto;");
+    .attr("style", "width: 100%; height: 100%;");
 
   // Add a rect for each bar.
   svg
