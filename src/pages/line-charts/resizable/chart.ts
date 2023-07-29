@@ -9,6 +9,10 @@ export function drawChart(
   width: number = 1280,
   height: number = 720,
 ) {
+  // don't show the chart on the first render of react
+  // and wait until react gives you the container dimensions.
+  if (width === 0 || height === 0) return;
+
   // Declare the chart dimensions and margins.
   const marginTop = 20;
   const marginRight = 30;

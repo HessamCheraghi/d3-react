@@ -1,10 +1,11 @@
 import React from "react";
 import Layout from "@/components/Layout";
-import { refined as data } from "@/data/apple";
+import { refined as data } from "@/data/large";
 import { drawChart, deleteChart } from "./chart";
 
-export default function ResizableLineChart() {
-  const chartRef = React.useRef<SVGSVGElement>(null);
+export default function ZoomableLineChart() {
+  const svgRef = React.useRef<SVGSVGElement>(null);
+  const chartId = React.useId();
 
   const [size, setSize] = React.useState({
     width: 0,
@@ -12,7 +13,7 @@ export default function ResizableLineChart() {
   });
 
   const resizer = React.useCallback(() => {
-    const parentSize = chartRef.current?.parentElement?.getBoundingClientRect();
+    const parentSize = svgRef.current?.parentElement?.getBoundingClientRect();
     if (!parentSize) return;
     setSize({
       width: parentSize.width,
@@ -21,19 +22,27 @@ export default function ResizableLineChart() {
   }, []);
 
   React.useEffect(() => {
+    const svgElement = svgRef.current;
+    if (!svgElement) return;
     resizer();
     window.addEventListener("resize", resizer);
-    drawChart(chartRef, data, size.width, size.height);
+    drawChart({
+      svgElement,
+      chartId,
+      data,
+      width: size.width,
+      height: size.height,
+    });
 
     return () => {
-      deleteChart(chartRef);
+      deleteChart(svgElement);
       window.removeEventListener("resize", resizer);
     };
-  }, [resizer, size.height, size.width]);
+  }, [chartId, resizer, size.height, size.width]);
   return (
-    <Layout title="Resizable Line Chart">
+    <Layout title="Zoomable Line Chart">
       <div className="h-[70vh] w-full">
-        <svg ref={chartRef} />
+        <svg ref={svgRef} />
       </div>
     </Layout>
   );

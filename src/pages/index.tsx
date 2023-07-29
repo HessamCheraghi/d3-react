@@ -4,6 +4,7 @@ import Links from "@/components/Links";
 import SimpleLineChart from "./line-charts/simple";
 import ResponsiveLineChart from "./line-charts/responsive";
 import ResizableLineChart from "./line-charts/resizable";
+import ZoomableLineChart from "./line-charts/zoomable";
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
             <Route path="simple" element={<SimpleLineChart />} />
             <Route path="responsive" element={<ResponsiveLineChart />} />
             <Route path="resizable" element={<ResizableLineChart />} />
+            <Route path="zoomable" element={<ZoomableLineChart />} />
           </Routes>
         }
       />
