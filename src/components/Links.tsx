@@ -6,6 +6,7 @@ const links = [
   { label: "resizable line", path: "line/resizable" },
   { label: "zoomable line", path: "line/zoomable" },
   { label: "simple bar", path: "bar/simple" },
+  { label: "responsive bar", path: "bar/responsive" },
 ];
 
 export default function Links() {
