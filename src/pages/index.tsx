@@ -7,6 +7,7 @@ import ResizableLineChart from "./line-charts/resizable";
 import ZoomableLineChart from "./line-charts/zoomable";
 import SimpleBarChart from "./bar-charts/simple";
 import ResponsiveBarChart from "./bar-charts/responsive";
+import ResizableBarChart from "./bar-charts/resizable";
 
 export default function App() {
   return (
@@ -36,6 +37,7 @@ export default function App() {
           <Routes>
             <Route path="simple" element={<SimpleBarChart />} />
             <Route path="responsive" element={<ResponsiveBarChart />} />
+            <Route path="resizable" element={<ResizableBarChart />} />
           </Routes>
         }
       />
