@@ -40,7 +40,7 @@ export default function ZoomableBarChart() {
     };
   }, [chartId, resizer, size.height, size.width]);
   return (
-    <Layout title="Zoomable Line Chart">
+    <Layout title="Zoomable Bar Chart">
       <div className="h-[70vh] w-full">
         <svg ref={svgRef} />
       </div>

@@ -9,6 +9,7 @@ const links = [
   { label: "responsive bar", path: "bar/responsive" },
   { label: "resizable bar", path: "bar/resizable" },
   { label: "zoomable bar", path: "bar/zoomable" },
+  { label: "grouped bar", path: "bar/grouped" },
 ];
 
 export default function Links() {

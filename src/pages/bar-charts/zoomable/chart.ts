@@ -1,3 +1,6 @@
+// todo: get programmatic zoom
+// todo: fix resetting issue when the container resizes (reset zoom on render)
+
 import * as d3 from "d3";
 
 type DatumType = { letter: string; frequency: number };

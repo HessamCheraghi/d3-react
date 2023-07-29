@@ -1,10 +1,11 @@
 import React from "react";
 import Layout from "@/components/Layout";
-import { data } from "@/data/alphabet";
+import { data } from "@/data/us-population-state-age";
 import { drawChart, deleteChart } from "./chart";
 
-export default function ResizableBarChart() {
-  const chartRef = React.useRef<SVGSVGElement>(null);
+export default function GroupedBarChart() {
+  const svgRef = React.useRef<SVGSVGElement>(null);
+  const chartId = React.useId();
 
   const [size, setSize] = React.useState({
     width: 0,
@@ -12,7 +13,7 @@ export default function ResizableBarChart() {
   });
 
   const resizer = React.useCallback(() => {
-    const parentSize = chartRef.current?.parentElement?.getBoundingClientRect();
+    const parentSize = svgRef.current?.parentElement?.getBoundingClientRect();
     if (!parentSize) return;
     setSize({
       width: parentSize.width,
@@ -21,21 +22,27 @@ export default function ResizableBarChart() {
   }, []);
 
   React.useEffect(() => {
-    const svgElement = chartRef.current;
+    const svgElement = svgRef.current;
     if (!svgElement) return;
     resizer();
     window.addEventListener("resize", resizer);
-    drawChart(svgElement, data, size.width, size.height);
+    drawChart({
+      svgElement,
+      chartId,
+      data,
+      width: size.width,
+      height: size.height,
+    });
 
     return () => {
-      deleteChart(chartRef);
+      deleteChart(svgElement);
       window.removeEventListener("resize", resizer);
     };
-  }, [resizer, size.height, size.width]);
+  }, [chartId, resizer, size.height, size.width]);
   return (
-    <Layout title="Resizable Bar Chart">
+    <Layout title="Grouped Bar Chart">
       <div className="h-[70vh] w-full">
-        <svg ref={chartRef} />
+        <svg ref={svgRef} />
       </div>
     </Layout>
   );
