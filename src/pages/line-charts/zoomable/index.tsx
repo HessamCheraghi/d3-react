@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "@/components/Layout";
-import { refined as data } from "@/data/large";
+import { refined as data } from "@/data/largeReal";
 import { drawChart, deleteChart } from "./chart";
 
 export default function ZoomableLineChart() {
